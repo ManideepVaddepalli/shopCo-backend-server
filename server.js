@@ -18,6 +18,9 @@ app.use("/api", loginroutes);
 app.use("/api/product", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/home", homeRoute);
+app.get("/", (req, res) => {
+  res.status(200).json({ mssg: "Hellow world" });
+});
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
