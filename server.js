@@ -5,6 +5,7 @@ const cors = require("cors");
 const loginroutes = require("./routes/loginSignup");
 const productRoutes = require("./routes/productRoutesd");
 const authRoutes = require("./routes/authRoutes");
+const homeRoute = require("./routes/homeRoute");
 const mongoose = require("mongoose");
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.use((req, res, next) => {
 app.use("/api", loginroutes);
 app.use("/api/product", productRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/home", homeRoute);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
